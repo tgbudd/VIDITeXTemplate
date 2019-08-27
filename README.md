@@ -5,6 +5,8 @@ Of course, I provide **no guarantees** that the document fulfils the criteria of
 
 It provides automatic word count on the relevant sections.
 
+Note that the final section **Statements by the applicant** is still missing (see the official application form).
+
 To compile the document run:
 ```
 lualatex --enable-write18 VIDI_template.tex
