@@ -1,0 +1,480 @@
+% !TeX program = lualatex
+\documentclass[10pt]{article}
+
+
+% Set paper
+\usepackage[a4paper,top=0.98in, bottom=0.98in, left=0.98in, right=0.98in]{geometry}
+
+% The Calibri font is proprietary. The open source Carlito font is close enough.
+% The 10pt font is scaled by 0.95 to get the required 9.5pt.
+\usepackage{fontspec}
+\defaultfontfeatures{Scale=0.95}
+\linespread{1.09}
+\setmainfont{Carlito}
+
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+
+
+\usepackage{sectsty}
+\usepackage{enumitem,amssymb}
+\usepackage{pifont}
+\usepackage{tabularx,tabu}
+\usepackage{lipsum}
+%\usepackage{luacolor}
+
+% Colors extracted from NWO's Word template
+\definecolor{sectionblue}{RGB}{0, 139, 159}
+\definecolor{headerblue}{RGB}{65, 81, 102}
+\definecolor{tableblue}{RGB}{38, 97, 119}
+
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label={\color{sectionblue}$\square$}}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\done}{\rlap{\color{sectionblue}$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}\hspace{-2.5pt}}
+	
+% Correct style for section titles
+\sectionfont{\normalfont\color{sectionblue}\fontsize{17}{17}\selectfont}  % sets colour of sections
+\subsectionfont{\normalfont\color{sectionblue}\fontsize{13}{13}\selectfont}  % sets colour of sections
+
+% Font used in table headers
+\newcommand{\tableheadfont}{\bfseries\fontsize{10}{10}\selectfont\leavevmode\color{tableblue}}
+
+% Section numbering
+\renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\arabic{section}\alph{subsection}.}
+
+% Automatic word count. Only works if texcount is installed and write18 is enabled
+% (call lualatex with --enable-write18).
+\newcommand{\wordcount}[1]{\immediate\write18{texcount \jobname.tex  | grep "Subsection: #1" | sed -e 's/+.*//' > 'count.txt'}\input{count.txt}words}
+
+\begin{document}
+	
+	\noindent
+	\begin{minipage}{.85\linewidth}
+		\color{headerblue}
+		{\rmfamily\fontsize{20}{20}\selectfont Grant application proposal form 2019}\\[0.3cm]
+		{\rmfamily\fontsize{15}{15}\selectfont NWO Talent Programme -- Vidi scheme}\\[0.25cm]
+		{\rmfamily\fontsize{11}{11}\selectfont
+		Applied and Engineering Sciences\\
+		Social Sciences and Humanities\\
+		Science\\
+		Health Research and Development}
+	\end{minipage}%
+	\begin{minipage}{.15\linewidth}
+		\includegraphics[height=3.5cm]{NWO_logo}
+	\end{minipage}
+	
+	\section{Field of research}
+	
+	\subsection{NWO domain (Choose one)}
+	\begin{todolist}
+		\setlength\itemsep{0em}
+		\item Applied and Engineering Sciences (AES/TTW)
+		\item Social Sciences and Humanities (SSH/SGW)
+		\item Health Research and Development (ZonMw)
+		\item[\done] Science (ENW)
+	\end{todolist}
+	
+	\subsection{Title of the research proposal}
+	
+	\subsection{Summary (max 300 words)}
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dolor erat, varius ac vulputate vitae, aliquam nec augue. Aenean fringilla, lectus eu posuere auctor, mauris mauris molestie justo, eu tempor nulla mauris vitae lorem. Pellentesque rhoncus pretium cursus. In pretium tempus bibendum. Pellentesque faucibus dolor eget arcu pretium efficitur. Vestibulum vehicula, augue sed semper vulputate, quam tortor iaculis purus, a bibendum purus tortor at urna. In felis massa, maximus in hendrerit quis, venenatis id libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras venenatis elit augue.
+	
+	Nam risus quam, fermentum sed cursus vel, auctor et leo. Vivamus vitae odio auctor, sollicitudin odio sed, ultricies massa. Etiam vel accumsan diam. Nulla nec ipsum eget diam sagittis finibus. Donec porttitor tellus ex, eu rutrum nisl convallis id. Nulla ut iaculis nunc. Fusce sed eros quis tortor interdum consectetur vitae in arcu.
+	
+	% remove in final version (actual word count one lower)
+	(\wordcount{Summary})
+	
+	\subsection{Keywords (max 5)}
+	
+	\subsection{Main field of research}
+	
+	
+	\begin{tabularx}{\linewidth}{|p{3.6cm}|X|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		\rowcolor[gray]{0.95}
+		& Field or research: & Code: \\\hline
+		Main field of research: & & \\\hline
+		Other field(s) of research (if applicable): & &\\\hline
+	\end{tabularx}
+	
+	\subsection{Public summary}
+	
+	{\hspace{2mm}\tableheadfont NL}\\
+	\begin{tabularx}{\linewidth}{|X|}
+		\hline {\tableheadfont Populaire project titel (max 50 words)} \\\hline
+		\ldots \\\hline
+	\end{tabularx}
+	
+	\vspace{6mm}	
+	\noindent{\hspace{2mm}\tableheadfont ENG}\\
+	\begin{tabularx}{\linewidth}{|X|}
+		\hline {\tableheadfont Popular project title (max 50 words)} \\\hline
+		\ldots \\\hline
+	\end{tabularx}	
+		
+	\section{Research proposal}
+	
+	\subsection{A description of the proposed research}
+	\vspace{-0.2cm}
+	{\bf\hspace{0.8cm} (Max. 4000 words on max. 8 pages)}\\[0.1cm]
+	
+	\noindent
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dolor erat, varius ac vulputate vitae, aliquam nec augue. Aenean fringilla, lectus eu posuere auctor, mauris mauris molestie justo, eu tempor nulla mauris vitae lorem. Pellentesque rhoncus pretium cursus. In pretium tempus bibendum. Pellentesque faucibus dolor eget arcu pretium efficitur. Vestibulum vehicula, augue sed semper vulputate, quam tortor iaculis purus, a bibendum purus tortor at urna. In felis massa, maximus in hendrerit quis, venenatis id libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras venenatis elit augue.
+	
+	Nam risus quam, fermentum sed cursus vel, auctor et leo. Vivamus vitae odio auctor, sollicitudin odio sed, ultricies massa. Etiam vel accumsan diam. Nulla nec ipsum eget diam sagittis finibus. Donec porttitor tellus ex, eu rutrum nisl convallis id. Nulla ut iaculis nunc. Fusce sed eros quis tortor interdum consectetur vitae in arcu.
+	
+	Suspendisse potenti. Sed fringilla venenatis libero. Aliquam sed gravida dolor. Ut placerat in lacus quis molestie. Morbi varius orci magna, ut fringilla elit aliquet at. Ut vitae interdum arcu. Aliquam at felis tellus. Aenean lobortis sem et diam sagittis, sed mollis tellus molestie. Aenean rutrum sapien lacus, a sagittis quam ultrices sit amet. Aenean vulputate leo ut tellus tempus egestas. Sed finibus blandit est, eget semper sapien accumsan non. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam in ultricies nulla.
+	
+	Etiam interdum consequat lacus, vel convallis purus pharetra eget. Vivamus faucibus risus nec imperdiet lobortis. Maecenas id nisl quis arcu imperdiet semper. Quisque sit amet sem scelerisque, suscipit nisi vitae, finibus mauris. Proin non bibendum quam. Curabitur quis quam nibh. Sed fermentum risus sem, vitae vestibulum felis tincidunt non.
+	
+	Aliquam sapien ligula, maximus eu consequat vel, eleifend vitae felis. Integer lobortis volutpat nisl quis bibendum. Aliquam ullamcorper metus eu sapien scelerisque volutpat. Vestibulum posuere pharetra turpis at vestibulum. Curabitur volutpat feugiat libero, at lobortis ex venenatis non. Duis sed aliquam odio, nec fermentum ligula. Nulla volutpat accumsan mi nec faucibus. Donec placerat tempus felis.
+	
+	
+	
+	Maecenas venenatis nisl varius elit iaculis laoreet. Donec euismod mauris non dolor finibus pharetra. Nulla est massa, efficitur et leo ac, sagittis efficitur lacus. Phasellus sit amet quam at urna aliquet laoreet. Nullam ornare fringilla diam. Nunc cursus augue ac metus tempor, sit amet bibendum dolor aliquam. Ut hendrerit a mauris quis ornare. Mauris ac volutpat arcu, non placerat magna. Morbi tincidunt, leo id aliquet elementum, sem massa facilisis nunc, sed ultricies purus neque nec orci. Nullam facilisis a ante sed varius. Ut vulputate eu enim at luctus. Mauris ultricies porttitor eros a ultrices. Nulla lectus magna, dictum quis ex id, eleifend consectetur quam. Vivamus tincidunt mauris non sapien dignissim, vel condimentum quam dapibus.
+	
+	Suspendisse potenti. Aenean interdum sit amet purus id condimentum. Ut pretium eros nec vulputate vulputate. Quisque tincidunt tristique malesuada. Morbi dapibus enim non cursus aliquam. Praesent feugiat volutpat turpis, ut facilisis tortor vulputate a. Sed iaculis sapien at lorem congue, sed placerat ligula ultrices. Donec justo mi, tincidunt ut finibus eget, malesuada non diam. Mauris vel neque nisl. Aliquam condimentum fringilla ipsum, a dapibus neque. Etiam ac pretium quam. Phasellus sed imperdiet tellus. Vestibulum ligula dolor, faucibus non cursus et, malesuada eget elit.
+	
+	Nunc pellentesque nisi ipsum, et ullamcorper tortor vehicula in. Vivamus suscipit, massa vitae hendrerit congue, turpis ex ornare dui, id elementum ex lorem et eros. Duis nec cursus velit. Nam in imperdiet ligula. Morbi ultrices, ex rhoncus faucibus elementum, ex ipsum commodo risus, a vehicula nunc orci vitae massa. Vivamus id nibh consectetur, ornare neque tempor, luctus lorem. In dignissim id neque sit amet viverra. Quisque rhoncus nibh vitae justo suscipit commodo. Aenean posuere suscipit felis.
+	
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=.3\textwidth]{example-image-a}
+		\caption{This is an example figure.}
+	\end{figure}
+	
+	Maecenas at orci sit amet risus faucibus ornare vel dictum nulla. Pellentesque pretium aliquet velit, nec molestie sapien consequat non. Aliquam aliquet urna nunc, ac imperdiet ipsum mollis sit amet. Mauris sit amet mauris et neque sagittis molestie sed a massa. Vivamus sollicitudin hendrerit ante, vel tincidunt est iaculis sagittis. Integer id egestas lacus, at efficitur metus. Nam rutrum finibus iaculis.
+	
+	Vestibulum sit amet diam tempus, blandit nunc id, egestas libero. Proin tempus tempus libero, eu ornare sem efficitur et. Vestibulum semper vel erat eu pharetra. Suspendisse potenti. Pellentesque imperdiet, massa ac venenatis porta, ex dui facilisis ex, eu tristique dolor ligula ac justo. Nunc luctus accumsan est, non suscipit neque varius at. Vestibulum ut condimentum arcu. Praesent nec arcu id mi efficitur imperdiet eu at metus. Fusce aliquam faucibus finibus. Mauris ut faucibus massa. Duis et lacus sit amet ipsum pharetra condimentum. Donec lacus turpis, interdum ac lobortis et, euismod congue nulla.
+	
+	Nulla rutrum turpis sed lobortis maximus. Donec gravida vitae massa ac vehicula. Vestibulum pretium cursus sapien, in egestas leo sodales at. Sed scelerisque efficitur tellus et pulvinar. Praesent vel nisl commodo, hendrerit neque ut, laoreet magna. Aenean mi nunc, suscipit sed justo sit amet, porta euismod magna. Nunc ultrices ex ut mauris posuere, non commodo nibh fringilla. Nam in metus scelerisque purus efficitur volutpat nec in tellus. Ut euismod erat iaculis libero tincidunt, eu porttitor est congue. Duis vel neque metus. Nullam id cursus ex, eu consequat felis.
+	
+	Sed velit elit, lacinia sed consectetur in, vehicula quis massa. Sed lectus magna, blandit et leo sit amet, imperdiet porttitor lacus. Mauris a ex non est venenatis faucibus. Nulla venenatis pharetra tortor, vitae ullamcorper nisi pulvinar quis. Mauris ac lorem est. Integer semper ligula eu tempor lobortis. Cras id sem quis diam vehicula tincidunt. Morbi sodales pellentesque eros, id consectetur elit volutpat eu. In feugiat pulvinar ipsum sed tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tincidunt mattis tempor. Maecenas tempus ligula ac enim sagittis, eget dignissim diam vulputate. Ut et sem eget massa ornare fermentum nec vitae nisi. Maecenas nisl risus, aliquet nec lacinia ut, tristique ut nunc. Aenean consectetur lorem consectetur, euismod ligula in, volutpat risus. Mauris ultrices finibus imperdiet.
+	
+	Ut ac ipsum ac risus vestibulum volutpat. Fusce metus metus, euismod quis efficitur sed, pharetra in orci. Aenean nec mattis mi. Nunc ac mi in elit iaculis hendrerit quis at nisl. Pellentesque sed lacinia sapien. Fusce at neque quis odio convallis interdum ut ac eros. Vestibulum rhoncus molestie urna non eleifend. Vivamus egestas, metus vitae efficitur tincidunt, leo felis iaculis ex, non ullamcorper massa nunc sit amet nisi. Mauris et velit id dolor tempus tempor. Pellentesque neque quam, molestie vel nisi vitae, feugiat imperdiet justo. Vestibulum ex mauris, hendrerit sed euismod sed, pulvinar elementum massa. Donec eget lorem eu nisi molestie tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque bibendum imperdiet magna quis tristique.
+	
+	Vivamus in ante laoreet, iaculis ex a, tempor tortor. Praesent sit amet vestibulum nisi. Quisque id mollis leo. Donec pharetra augue sit amet diam ornare, ac varius erat finibus. Sed sagittis nisl eget erat ornare mattis. Maecenas ligula lectus, pretium vel lectus ut, elementum eleifend felis. Integer sit amet nibh vel diam vestibulum placerat et sed sem. Aenean id diam eu nunc lobortis placerat vitae eu lectus. Nullam mollis interdum placerat. Quisque tempor varius posuere. Nullam ultrices libero est. Aliquam pretium lorem nec neque fringilla, ut pharetra neque accumsan. Integer laoreet vehicula eros eget dignissim. Fusce ut ligula vel ante laoreet ornare non non nunc. Aenean non massa cursus, eleifend elit at, sagittis augue.
+	
+	Nulla rutrum ut ipsum quis imperdiet. Cras facilisis est mauris, non ultrices dolor efficitur at. Quisque libero velit, placerat id cursus sed, varius et felis. Sed erat lectus, convallis vitae facilisis a, suscipit viverra mauris. Donec nunc nibh, hendrerit vitae luctus id, euismod vitae mi. Donec sollicitudin tortor vitae ex molestie varius. Phasellus eget posuere purus. In a nisi ut augue accumsan fermentum id vitae risus. Phasellus tempus purus at nibh elementum vestibulum. Donec ante nibh, finibus blandit turpis eget, lobortis semper massa. Proin quis dui et justo lacinia sagittis. Nullam eget tellus molestie, ullamcorper nibh ut, sagittis felis. Nullam tristique auctor eros, aliquam dapibus augue ullamcorper sit amet. Maecenas sapien orci, elementum eu lobortis id, varius vel quam. Morbi aliquam varius sem vel finibus. Suspendisse sollicitudin at purus non tempor.
+	
+	Aenean sagittis maximus mauris, fermentum fringilla arcu malesuada ut. Vivamus aliquam risus dictum pharetra fermentum. Vivamus sollicitudin maximus erat, dictum dapibus turpis vehicula at. Etiam a augue vitae lectus feugiat finibus. Suspendisse non ultricies tellus. Morbi laoreet ut ligula id pharetra. Sed sagittis erat neque, hendrerit aliquet eros lobortis a. Nulla lacus felis, malesuada ut turpis sit amet, consectetur eleifend dui.
+	
+	Pellentesque vel euismod turpis, eget blandit arcu. Ut imperdiet augue ullamcorper ex luctus placerat. Nullam orci nibh, ultricies non feugiat quis, lobortis nec ante. Quisque turpis turpis, dignissim sed quam quis, rhoncus sagittis dolor. Etiam sagittis libero sed nisi auctor tristique. Sed eget elit id ex gravida tincidunt vel sit amet neque. Nulla eu justo rhoncus, vehicula purus eget, accumsan augue. Proin et metus tellus. Maecenas et sem bibendum, maximus massa eu, molestie quam. Ut mollis augue nec mauris molestie, sit amet porta mauris cursus. Donec dapibus sapien nec magna molestie commodo.
+	
+	Fusce eu maximus eros, nec facilisis lacus. Donec efficitur enim ultrices velit gravida congue. Aliquam porta, nibh quis egestas sodales, elit metus porttitor lacus, vel commodo odio dui quis nisi. Ut libero eros, rhoncus sed sodales vel, porta quis tortor. In id pretium elit. Nam quis sem non quam finibus mollis vitae ut neque. Mauris vitae arcu justo. Nunc ut leo nec dui commodo rhoncus. Ut ut purus tristique lectus ullamcorper ultrices eget at tellus. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque malesuada imperdiet libero, consequat dignissim augue molestie a. Vestibulum tincidunt pharetra massa, eu commodo diam aliquet id. Fusce egestas suscipit neque, sed rhoncus quam pellentesque sed. Ut finibus efficitur nibh eu feugiat. Phasellus ultrices posuere erat, at convallis velit.
+	
+	Pellentesque sit amet diam a ipsum condimentum gravida. Maecenas tempor odio tortor, nec luctus turpis vestibulum tincidunt. Mauris tempus maximus metus, vel maximus mi lacinia vitae. Maecenas tincidunt porttitor varius. Sed eleifend tellus sit amet velit faucibus, in varius erat sollicitudin. Aliquam venenatis ipsum id risus iaculis tincidunt. Nam fermentum, neque nec viverra laoreet, metus ex aliquam urna, non rhoncus lacus mi at nunc. Fusce posuere, turpis nec euismod aliquet, ante diam molestie tellus, non tempor mauris erat in lectus. Nam lobortis fringilla volutpat. Phasellus euismod libero vulputate suscipit convallis. Curabitur a ante eget odio consequat feugiat in sit amet purus.
+	
+	Vestibulum sit amet mattis quam. Nunc id nibh congue, sollicitudin eros a, egestas diam. Nam nec odio quis mi efficitur blandit. Etiam ut risus ut nisi gravida pellentesque. In accumsan risus sollicitudin orci vulputate, sit amet blandit nibh aliquam. Aliquam vulputate, massa quis consectetur maximus, odio dolor auctor dui, eget egestas nisi quam posuere est. Proin luctus aliquet velit eu facilisis. Vestibulum at velit vel lorem fermentum fringilla id vulputate orci. Suspendisse vulputate ultricies libero, nec commodo orci cursus eget. Integer pharetra enim vel ex semper, sit amet faucibus dui congue. Pellentesque libero ipsum, tristique quis volutpat ac, varius eget urna.
+	
+	In sit amet scelerisque velit, non suscipit felis. Proin cursus vestibulum ante a elementum. Aliquam tempus arcu ut augue efficitur semper ac lobortis arcu. Sed purus sem, finibus non gravida id, laoreet et arcu. Aenean mattis sem non dui scelerisque, eu semper mauris ultrices. Nulla sodales facilisis congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+	
+	Suspendisse sit amet leo arcu. Integer nulla mauris, egestas at neque ultricies, semper malesuada nunc. In vel molestie nisi. Integer pharetra pharetra laoreet. Pellentesque tincidunt dolor sit amet luctus condimentum. Aenean id dui in ligula lobortis convallis quis eget risus. Vivamus laoreet ultrices auctor. Ut eget interdum nisl, at malesuada nunc. Aliquam ornare, lectus et lobortis sollicitudin, massa lacus eleifend nisl, et scelerisque nisl tortor eu diam.
+	
+	Sed ac luctus libero. Sed suscipit vehicula justo, eu laoreet sapien venenatis in. Nullam dignissim, libero imperdiet porttitor euismod, sem dolor elementum ipsum, porta fermentum erat quam eget lectus. Vivamus et imperdiet nunc, vitae mollis tellus. Morbi bibendum neque placerat mollis tristique. Nullam consectetur efficitur diam, id porttitor tellus rhoncus vitae. Quisque ultricies neque ut consequat tristique. Etiam faucibus ipsum lacus, ac aliquet velit luctus volutpat.
+	
+	Maecenas vel placerat lacus, non ullamcorper dolor. Cras vestibulum dapibus sapien eget volutpat. Ut id quam erat. Etiam convallis tempus mauris scelerisque posuere. Vivamus eu ullamcorper purus. Etiam ultrices fermentum leo a porta. In feugiat velit sit amet nisl faucibus, vel egestas diam laoreet. Integer sit amet lacinia sapien. Nam condimentum sollicitudin ullamcorper. Sed suscipit imperdiet venenatis. Vivamus tempor augue in risus fringilla, gravida interdum magna venenatis. Curabitur non imperdiet ex, non eleifend dui. Sed facilisis, lacus sed eleifend consectetur, nisi diam semper arcu, sed auctor arcu lorem non arcu. Sed eget purus accumsan quam facilisis maximus.
+	
+	Morbi mollis egestas porta. Ut faucibus at quam nec posuere. In vel elit non libero iaculis sodales non id nunc. Aliquam tincidunt, ante eu vehicula pretium, metus lectus luctus nulla, in lobortis magna lectus blandit erat. Etiam placerat imperdiet pharetra. Quisque aliquet viverra aliquet. Donec ac egestas nisl. Sed rutrum urna ut nibh dapibus, vitae imperdiet ligula finibus. Pellentesque posuere, nibh id blandit feugiat, risus libero tempor nulla, in pharetra neque mauris et tortor. Donec in scelerisque ligula. Curabitur interdum augue sed vulputate mattis. Phasellus dapibus, lorem id sodales rhoncus, purus elit lacinia lorem, imperdiet consequat metus nunc ac tortor. Vestibulum iaculis dui et mauris vehicula, sit amet lacinia felis sollicitudin. Ut feugiat posuere malesuada. Vivamus sit amet elit quis leo blandit vehicula nec ut tellus.
+	
+	Pellentesque bibendum est diam, quis egestas orci volutpat non. Aenean blandit lectus ac lectus suscipit tincidunt. Sed enim ipsum, faucibus ut arcu vel, consectetur eleifend lectus. Donec viverra pretium semper. Morbi eu leo iaculis, varius augue at, feugiat felis. Ut suscipit mauris nec velit pretium dapibus sed a mi. Praesent tincidunt diam sit amet pretium molestie.
+	
+	Quisque tincidunt, purus ut imperdiet sagittis, nisi odio ullamcorper enim, sit amet suscipit tellus nunc at quam. Cras eu accumsan magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque pellentesque dolor a consectetur sodales. Aenean non eleifend eros, ut efficitur massa. Fusce ultrices quis tortor in luctus. Sed blandit velit sit amet urna sollicitudin faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In cursus imperdiet ullamcorper. Nam dolor est, lobortis id vulputate et, cursus in enim. Vivamus dignissim purus eu ligula vestibulum iaculis. Etiam rhoncus laoreet mauris id gravida. Nam ultrices viverra enim, vitae viverra lacus tincidunt congue. Nulla metus lectus, consequat eu dolor sit amet, vestibulum ullamcorper arcu. Donec vehicula augue id justo ullamcorper fringilla quis vitae felis. Pellentesque non blandit mi.
+	
+	Aliquam efficitur in sapien ut tincidunt. Vivamus at felis risus. Integer pellentesque id ligula ut blandit. Nullam sit amet facilisis erat. Morbi sagittis neque a libero hendrerit, at pellentesque lacus viverra. Suspendisse volutpat at nisl sit amet rutrum. Nulla rhoncus consectetur justo, id euismod metus feugiat nec.
+	
+	Pellentesque scelerisque quam dolor, et vestibulum quam congue a. Praesent gravida tristique nunc eu auctor. Mauris malesuada et justo malesuada auctor. Nam ipsum eros, luctus ac enim sit amet, dignissim laoreet leo. Praesent vel aliquam odio. Integer in sodales velit, eu bibendum urna. Suspendisse a mauris placerat nibh condimentum vestibulum nec vitae sapien. Nulla in turpis odio. Pellentesque sit amet est nec augue sollicitudin tempor accumsan nec ante. Etiam iaculis consectetur ex id hendrerit. Fusce eget tortor maximus, porta nulla quis, porttitor neque.
+	
+	Donec rhoncus vel nulla venenatis commodo. Vivamus interdum felis vel velit tristique sodales. Aliquam in libero vel eros posuere scelerisque. Integer maximus et massa in ultricies. Nunc sollicitudin condimentum eros. Aenean blandit dui justo. Sed a ultrices libero.
+	
+	Praesent sit amet eleifend augue, sed lobortis lorem. Vivamus tristique lorem ut ullamcorper consequat. Donec auctor arcu diam, mattis mollis turpis tempor suscipit. Nam gravida enim ac justo iaculis facilisis. Morbi vitae nisi nec sem maximus rhoncus eu eget augue. Ut nisl massa, rutrum eget est sit amet, faucibus euismod quam. Nunc pellentesque justo vel pellentesque tristique.
+	
+	Curabitur ipsum nisl, blandit eget sodales quis, pulvinar ut turpis. Duis quis lobortis ante, ac mattis tellus. Praesent velit mi, posuere vitae lacus eget, volutpat maximus purus. In pellentesque lobortis libero, eget imperdiet enim imperdiet quis. Pellentesque hendrerit nisl in sollicitudin condimentum. Nulla non felis lacus. Proin arcu mauris, fermentum non orci nec, faucibus maximus enim. Ut venenatis magna sit amet sem consectetur, non sagittis ligula tincidunt. In dapibus dui non scelerisque auctor. Sed in bibendum tellus. Integer rhoncus dolor placerat, cursus nulla at, accumsan nisl. Sed id rutrum tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec sapien neque, dapibus at eros ut, tristique euismod mauris. Sed viverra mi id dui suscipit interdum. Ut lacinia lacus nec egestas condimentum.
+	
+	Praesent tellus dolor, fringilla non justo eleifend, sagittis tincidunt purus. Donec cursus libero in nulla facilisis porttitor. Maecenas sit amet rutrum leo, id blandit arcu. Nunc sagittis commodo libero et venenatis. Quisque erat dolor, dictum sed dapibus vel, malesuada id nisl. Vestibulum et neque libero. Quisque condimentum vel mi faucibus ornare. Curabitur eget magna gravida, dapibus tellus ut, suscipit leo. Fusce id commodo neque. Praesent aliquam feugiat arcu sed sagittis. Nulla egestas tortor non libero finibus varius.
+	
+	Vivamus a congue mi. Donec faucibus, ligula non lacinia tempor, tortor dolor aliquet justo, blandit efficitur justo magna dictum ligula. Phasellus tincidunt congue leo eu auctor. In ut sagittis sapien, eget finibus sem. Phasellus in odio quis ipsum dignissim sagittis tempus sed dui. Suspendisse volutpat tortor purus. Pellentesque nec placerat neque, id vulputate nisi. Pellentesque sem mauris, euismod et nulla et, efficitur pellentesque lorem. Proin commodo quam eget massa aliquet, ac blandit tortor iaculis. Morbi quis metus ullamcorper, pretium nunc vel, commodo elit. Sed efficitur, risus at efficitur lobortis, neque orci facilisis est, vitae dapibus lacus orci a arcu. Vestibulum scelerisque sapien a lectus tristique laoreet. Praesent ut est sed turpis euismod tristique. Phasellus id auctor enim.
+	
+	Sed porttitor porta augue in scelerisque. Integer a turpis sit amet ipsum mollis aliquet. Nunc porta nibh vel risus viverra, a consequat tortor auctor. Aliquam interdum vestibulum magna dapibus feugiat. Maecenas ut orci vitae massa pulvinar euismod sit amet fringilla nunc. Donec ullamcorper euismod nisi consectetur varius. Praesent laoreet tincidunt nunc, id fermentum quam gravida eu. Integer eget facilisis lacus. Nullam quis pulvinar velit, et congue purus. Nam nec mauris posuere, efficitur arcu sed, dictum ligula. Morbi eu urna accumsan, fringilla nibh sit amet, dapibus ante. Maecenas eu sapien in sapien tempus ultrices. Morbi gravida arcu magna, a lobortis nibh mollis nec. Nam auctor orci sed metus condimentum, vel viverra nunc mattis. Phasellus velit quam, porta at dui non, venenatis vehicula arcu. Vivamus mollis, est et lobortis porttitor, eros nunc feugiat ligula, quis dictum metus tellus vitae velit.
+	
+	Maecenas fermentum pretium nibh et pretium. Integer sed blandit est. Praesent sollicitudin lorem ut mauris pellentesque, sodales rutrum est elementum. Etiam vel sem nec tortor pretium vulputate. Duis porta maximus mi et interdum. Cras rhoncus nisi vel diam finibus, in convallis metus volutpat. Praesent volutpat, turpis nec porta blandit, ex massa tincidunt massa, sed posuere enim diam quis metus. Sed tincidunt, ante vel efficitur suscipit, erat turpis ullamcorper nunc, non imperdiet neque ligula eu justo. Curabitur non mi lorem. Ut dignissim turpis nec ultricies consequat.
+	
+	Duis congue enim erat, a pharetra diam scelerisque ac. Duis sodales in libero vel cursus. Sed venenatis tincidunt elit tempus varius. Mauris ornare felis eget sagittis lobortis. Nullam euismod velit ac ligula rutrum, at fringilla erat aliquet. Donec nisl orci, tempus ut tincidunt dictum, ultrices vitae tellus. Sed fermentum, odio vitae laoreet vulputate, lorem arcu porttitor elit, sit amet luctus augue libero sed erat. Nullam at auctor tellus, vel mattis arcu. Nullam non dolor aliquam, fringilla orci aliquet, dignissim felis. Fusce tristique lectus a eros lacinia, nec sollicitudin mauris congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc quam orci, placerat et ipsum sed, ornare cursus augue. Nulla fringilla, turpis quis luctus vulputate, metus erat tincidunt ex, vitae interdum enim ligula vitae magna.
+	
+	Aenean vulputate, diam eu consectetur tristique, eros enim dictum tellus, non mattis turpis lacus ut neque. Cras condimentum lectus id suscipit vehicula. Pellentesque ultricies massa magna, sit amet volutpat tellus eleifend eget. Nullam eleifend mollis leo. Pellentesque scelerisque odio arcu, in consequat ex eleifend in. Ut et tristique mauris. Maecenas sed tempus lacus, non elementum dolor. Morbi in mattis libero. In dictum, tortor et dignissim aliquam, massa ex euismod risus, ac condimentum urna lorem et tortor. Nulla facilisi. Nam fringilla sed dui vitae suscipit. Donec tincidunt ornare risus, auctor ullamcorper arcu mattis id. Sed mi quam, semper quis volutpat eget, semper sit amet neque. Vestibulum eu tempor lorem. Nam molestie ullamcorper ante, vel auctor dui tincidunt et.
+	
+	Fusce ac laoreet augue. Quisque finibus tristique tortor, vel lacinia urna luctus at. Maecenas vitae bibendum massa. Donec in erat malesuada, fermentum arcu at, ornare augue. Vivamus id justo augue. Phasellus quam ex, molestie ut massa ut, pharetra bibendum quam. Morbi et ornare metus, at finibus tellus. Nunc suscipit erat cursus magna feugiat, eu facilisis erat faucibus. Integer molestie volutpat nulla, eleifend rhoncus erat fringilla at. Nam id fermentum metus. Nulla ultrices vulputate lectus ut congue. Phasellus fermentum placerat urna, id condimentum ipsum pretium et. Sed tincidunt, nulla iaculis euismod accumsan, sapien justo finibus sem, non iaculis mi sem a nibh. Maecenas orci nisl, porta ac orci eget, rhoncus elementum lectus. Suspendisse sed orci neque. Cras tristique libero justo, maximus volutpat nunc ornare sed.
+	
+	Cras faucibus iaculis ex et egestas. Etiam congue elit lectus, in iaculis quam tincidunt vitae. Suspendisse vulputate ex eu convallis elementum. Proin eget facilisis lorem. Pellentesque sit amet porta metus. Praesent felis diam, faucibus in fermentum non, tempus id nulla. Nulla quis quam turpis. Integer vestibulum imperdiet neque sed laoreet. Vivamus a volutpat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam congue faucibus tortor, eu dapibus velit bibendum ut. Pellentesque ut placerat arcu. Cras vitae blandit ligula. Aliquam eu aliquam elit. Nullam aliquet lorem ac risus iaculis, vitae finibus sapien aliquam. Maecenas eu sodales ligula.
+	
+	Etiam varius augue ac viverra scelerisque. Proin a odio quis ipsum accumsan ultricies eu et mi. Donec suscipit, lectus ut dapibus egestas, mi metus accumsan magna, ac aliquam dui arcu et ligula. Cras vestibulum vehicula eros sed feugiat. Maecenas quis mi urna. Praesent sit amet velit volutpat, egestas felis at, congue ligula. Sed a nibh sit amet eros sagittis porttitor. In hac habitasse platea dictumst. Aliquam feugiat dignissim cursus. Mauris risus erat, sollicitudin vel efficitur eget, elementum in nulla. Morbi ex est, pulvinar sit amet turpis at, eleifend hendrerit risus. Donec in turpis ut sapien sagittis eleifend. Nullam nisi urna, bibendum at dolor ac, scelerisque euismod orci.
+	
+	Aenean sed ipsum maximus, egestas ante id, facilisis enim. Phasellus malesuada odio et nunc gravida ultricies. Nunc pretium felis enim, nec gravida nisl tincidunt quis. In vel sem ultrices urna sollicitudin euismod ut eu ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent efficitur cursus libero, sed feugiat massa feugiat nec. Etiam placerat ipsum non mauris sollicitudin eleifend. Quisque quis lacus nulla. Donec viverra tempus diam, in accumsan ipsum tempus in. Donec eu rutrum elit. Etiam blandit, felis eget tincidunt sodales, augue dui ultrices libero, nec bibendum erat ex in leo. Nunc nec scelerisque augue. Pellentesque felis purus, facilisis quis eros at, condimentum convallis dui. Phasellus suscipit felis massa, eu fermentum nisl malesuada quis.
+	
+	Nulla in enim ut tellus semper aliquet eu sit amet ligula. Vestibulum nec metus porta, sagittis tortor non, malesuada massa. Phasellus enim odio, sagittis quis mi non, consequat ultrices ipsum. Nunc consequat pulvinar libero, ac rhoncus nunc facilisis ac. In iaculis malesuada ante et luctus. In varius enim felis, sit amet finibus urna facilisis nec. Proin facilisis malesuada pretium. Maecenas congue viverra condimentum. Vestibulum tincidunt fermentum varius. Duis finibus lacinia interdum. Sed efficitur ultrices auctor. Aliquam tincidunt malesuada ultrices. In aliquet at turpis ut commodo.
+		
+	
+	\subsection{Knowledge utilization}
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel eleifend purus. Vivamus sed felis sit amet ex posuere dictum nec aliquet ligula. Vestibulum vel lorem pharetra, tincidunt eros in, suscipit enim. Duis non porttitor turpis. Aliquam sit amet nulla sed odio consectetur vehicula eu et urna. Integer eget arcu pretium, elementum augue sed, venenatis felis. Vivamus egestas erat vel ante dignissim vestibulum. Phasellus vestibulum facilisis mattis. Phasellus rhoncus nibh at tellus varius tempus. In quis erat ultricies, feugiat odio quis, vehicula ante.
+	
+	Duis scelerisque, massa ut aliquet egestas, ex mauris sollicitudin metus, ac interdum lectus eros sed nisl. Praesent et porta ipsum. Proin ut semper erat. Quisque quis purus ac purus auctor dignissim. Donec semper, libero vel interdum aliquam, leo ex porttitor arcu, eget pretium justo ante vitae augue. Nullam consectetur lacus purus, nec aliquam sem vestibulum vel. Nulla mollis eleifend augue vitae sollicitudin. Phasellus eget bibendum metus. In ac eros velit.
+	
+	Maecenas eu felis non arcu imperdiet lobortis. Praesent aliquam justo nec massa gravida, non euismod nisi placerat. Vestibulum sit amet dictum turpis. Donec id dui ut nulla tincidunt aliquam. Phasellus vestibulum, sem nec suscipit fringilla, mi nibh convallis mauris, maximus fringilla metus ipsum a enim. Quisque sapien erat, tincidunt id molestie consequat, sodales elementum ex. In nunc nisi, finibus eget ligula quis, rutrum malesuada augue. Cras venenatis elit non lacus lobortis, mollis fringilla lectus dignissim. Donec vestibulum suscipit pellentesque. Nunc at elit quis augue consequat tempor. Mauris elementum mauris eu ullamcorper accumsan.
+	
+	Cras nec lobortis nibh. Morbi vehicula orci vulputate dapibus laoreet. Quisque ac justo varius, mollis dui ut, sollicitudin eros. Sed sed venenatis quam. Maecenas est arcu, placerat vestibulum justo sed, vehicula volutpat turpis. Praesent hendrerit egestas pulvinar. Praesent elementum leo rhoncus eros laoreet, in interdum ex vehicula.
+	
+	Maecenas porttitor leo libero, sit amet pharetra justo dapibus non. Ut efficitur, elit quis sollicitudin fringilla, nibh lorem ultrices mi, non bibendum elit risus quis risus. Ut et interdum dui. Aenean luctus mauris massa. Phasellus eu feugiat enim. Integer orci nisi, sollicitudin vehicula libero a, bibendum efficitur nisi. Integer vehicula elit pulvinar ante posuere, sit amet varius lorem consequat. Ut condimentum mauris quam, ac molestie dui mollis nec. Ut a augue sit amet neque convallis volutpat vel in ante. Vestibulum interdum lacus ut vehicula finibus. Donec quis viverra risus. Maecenas cursus augue sed imperdiet lobortis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+	
+	Donec pharetra ante eget vulputate bibendum. Nulla sollicitudin nulla et turpis hendrerit euismod. Pellentesque accumsan ante scelerisque turpis fermentum, sit amet molestie sapien auctor. In mattis enim lacus, a imperdiet arcu scelerisque in. Sed tempor metus ac tellus blandit ullamcorper. Nunc pulvinar neque et pulvinar tempor. Mauris nec leo eu neque faucibus convallis semper in augue. Aenean ac faucibus ante, et elementum erat. Curabitur scelerisque elit nulla, vitae condimentum augue auctor rutrum. Ut eu velit bibendum, tristique mauris et, lobortis est.
+	
+	Donec porta, odio non elementum varius, ante magna blandit felis, in interdum sapien enim vel neque. Nulla ac justo nisl. Sed quam diam, feugiat quis accumsan eget, luctus a risus. Aliquam elementum maximus dictum. Donec interdum, dolor vel sodales viverra, augue massa finibus neque, sit amet laoreet lacus lorem sit amet arcu. Donec eu eros et mi lacinia tristique quis at nisi. Praesent tincidunt nulla eu lorem sodales auctor. Phasellus tempus finibus nulla vitae placerat. Sed semper dapibus dolor, non egestas velit tincidunt rutrum. Nam bibendum cursus blandit. Nam mattis risus ac malesuada efficitur.
+	
+	Donec eget augue lorem. Suspendisse potenti. Nulla nec est in nunc condimentum convallis. Nunc sit amet massa condimentum nibh dictum pharetra eget id dui. Praesent feugiat quam ac magna hendrerit venenatis. Nullam in vulputate ante. Nullam nisi diam, pulvinar et ultrices quis, varius sed sem. In quis ex in purus egestas lacinia vel nec mi. Donec vulputate, nulla non dignissim dignissim, tortor libero tincidunt dolor, ultricies sagittis lacus ante et velit. Mauris imperdiet ac ipsum vitae facilisis. Nunc euismod, est id condimentum rutrum, velit urna interdum tortor, sit amet interdum purus lorem sit amet ipsum.
+	
+	Fusce viverra magna metus, sed commodo sapien lacinia a. Quisque consectetur eget libero quis scelerisque. Maecenas eget rhoncus quam. Mauris et dignissim metus, non iaculis erat. Maecenas a sollicitudin elit. Nam blandit facilisis neque vel pellentesque. Etiam felis eros, consequat ac orci auctor, aliquet hendrerit turpis. Duis a massa placerat, ornare ipsum et, volutpat odio.
+	
+	Vestibulum at magna id dolor pellentesque volutpat. Maecenas congue vel arcu ac feugiat. Sed tristique interdum dolor, vel dignissim lectus posuere non. Nunc posuere velit non ante dignissim cursus. Fusce vestibulum arcu at orci vestibulum, ac mattis ligula eleifend. Mauris laoreet auctor sollicitudin. Quisque nec dui nisi. Fusce sapien sem, tristique at massa ornare, convallis varius nulla. Praesent velit turpis, sollicitudin eu libero viverra, commodo vulputate nibh. Ut vitae vestibulum ante. Duis enim nunc, pellentesque ac venenatis a, ullamcorper non risus. Cras nec sapien scelerisque felis sodales fermentum. Cras placerat leo a eros scelerisque fermentum.
+	
+	Sed elementum orci arcu. Proin et sapien ut neque dapibus convallis et vel mauris. Donec ac tempor purus. Donec non eleifend lacus, non iaculis dui. Curabitur arcu metus, suscipit nec magna sed, blandit sodales turpis. Nulla porttitor molestie porttitor. Nulla gravida eu eros vel varius.
+	
+	Nulla lacinia, orci sit amet lacinia porta, ex leo dignissim dui, eget sagittis nibh urna vel nibh. Morbi vel elit nec ante faucibus vestibulum a scelerisque felis. Etiam dui nisi, lobortis ut sem id, vulputate facilisis orci. Integer blandit condimentum ipsum, hendrerit auctor turpis varius sed. Suspendisse aliquet mauris nec cursus porttitor. Vestibulum non est congue, varius tellus ut, congue sem. Sed dignissim libero nec varius bibendum. In pellentesque feugiat augue sed tristique. Morbi efficitur dignissim metus, a ultricies ante pulvinar laoreet. Morbi laoreet elementum maximus. Aliquam semper odio ex, et volutpat arcu cursus sit amet. Maecenas rutrum metus urna, a egestas dui consequat vel. Pellentesque tortor velit, semper ut magna a, aliquet rutrum nunc. Maecenas sit amet ex at urna rhoncus fermentum. Sed at ipsum facilisis, ultricies justo vitae, fringilla mauris. Maecenas sed est ac.
+	
+	
+	\subsection{Number of words}
+	
+	\noindent
+	Section 2a: \quad \wordcount{A description of the proposed research} \quad (max. 4,000 words/8 pages)\\
+	Section 2b: \quad \wordcount{Knowledge utilization} \quad (max. 1,000 words/2 pages)
+	
+	\subsection{Literature references}
+	
+	\subsection{Data management section}
+	
+	\begin{enumerate}
+		\item Will data be collected or generated that are suitable for reuse?
+		\begin{itemize}
+			\item[\ding{234}] Yes: Then answer questions 2 to 4.
+			\item[\ding{234}] No: Then explain why the research will not result in reusable data or in data that cannot be stored or data that for other reasons are not relevant for reuse.
+		\end{itemize}
+		\item Where will the data be stored during the research?
+		\item After the project has been completed, how will the data be stored for the long-term and made available for the use by third parties? To whom will the data be accessible?
+		\item Which facilities (ICT, (secure) archive, refrigerators or legal expertise) do you expect will be needed for the storage of data during the research and after the research? Are these available?*
+	\end{enumerate}
+	
+	\section{Budget}
+	
+	\subsection{Budget}
+	
+	The maximum amount of a Vidi grant is € 800,000, to be spent over a period of five years. If the proposed research is of shorter duration, the maximum grant amount will be reduced accordingly.
+	
+	\vspace{0.4cm}
+	\noindent
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\linewidth}{|>{\cellcolor[gray]{0.8}\tableheadfont}X|l|l|l|l|l|l|l|l|l|}
+		\arrayrulecolor[gray]{0.4}\hline
+		\rowcolor[gray]{0.8} & \multicolumn{3}{c|}{\tableheadfont Description} & {\tableheadfont Year 1} & {\tableheadfont Year 2} & {\tableheadfont Year 3} &  {\tableheadfont Year 4} &  {\tableheadfont Year 5} &  {\tableheadfont Total} \\\hline
+		\rowcolor[gray]{0.8} Staff & & {\tableheadfont FTE**} & {\tableheadfont Months} & & & & & & \\\hline
+		WP* & Applicant &  &  & & & & & & \\\hline
+		NWP* & &  &  & & & & & & \\\hline
+		Total staff & &  &  & & & & & & \\\hline
+		Equipment & \multicolumn{3}{l|}{\ldots}  & & & & & & \\\hline
+		Investments & \multicolumn{3}{l|}{\ldots}  & & & & & & \\\hline
+		Consumables & \multicolumn{3}{l|}{\ldots}  & & & & & & \\\hline
+		Travel & \multicolumn{3}{l|}{\ldots}  & & & & & & \\\hline
+		Other & \multicolumn{3}{l|}{\ldots}  & & & & & & \\\hline
+		Total Materials & \multicolumn{3}{l|}{\ldots}  & & & & & & \\\hline
+		\multicolumn{4}{|c|}{\cellcolor[gray]{0.8}\tableheadfont Grand total} & & & & & & \\\hline
+	\end{tabularx}
+	}
+	
+	\begin{itemize}
+		\item[*]WP = Scientific staff; NWP = Non-scientific staff; please also list the nature of the post (for example PhD student or
+		postdoc researcher)
+		\item[**] Please list the time you will spend on your Vidi, including any FTE percentage that your host institution will pay of
+		your salary for your work on this Vidi project. If your host institution pays for (part of) the time you spend on
+		your Vidi, please include this information in section 3b. 
+	\end{itemize}
+
+	\subsection{Contributions `in kind'}
+
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\linewidth}{|X|X|X|}
+		\arrayrulecolor[gray]{0.4}\hline
+		\rowcolor[gray]{0.8} {\tableheadfont Contributing party} & {\tableheadfont Description } & {\tableheadfont Estimated value in euros} \\\hline 
+	 & & \\\hline
+	 & & \\\hline
+	\end{tabularx}
+	}
+
+	\subsection{Contributions `in cash'}
+
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\linewidth}{|X|X|X|}
+		\arrayrulecolor[gray]{0.4}\hline
+		\rowcolor[gray]{0.8} {\tableheadfont Contributing party} & {\tableheadfont Description } & {\tableheadfont Value in euros} \\\hline 
+		& & \\\hline
+		& & \\\hline
+	\end{tabularx}
+	}
+	
+	\subsection{Totals}
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\linewidth}{|p{3cm}|X|}
+		\arrayrulecolor[gray]{0.4}\hline
+		{\cellcolor[gray]{0.8}\tableheadfont Grand total} & \ldots\quad (=3a) \\\hline 
+		{\cellcolor[gray]{0.8}\tableheadfont Requested budget} & \ldots\quad (=3a minus 3b and 3c) \\\hline 
+	\end{tabularx}
+	}
+
+	\subsection{Additional grants for this project}
+	
+	\section{Curriculum Vitae}
+	
+	\subsection{Personal details}
+	
+	\begin{tabularx}{\linewidth}{|p{5.4cm}|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		Title(s), initial(s), surname(s): & \\\hline
+		Postal address (for full duration of the round): & \\\hline
+		Telephone: & \\\hline
+		Mobile phone: & \\\hline
+		Email address: & \\\hline
+		Preferred language of correspondence
+		(choose one): & \\\hline
+	\end{tabularx}
+	
+	\subsection{Master's degree (`doctoraal')}
+	
+	\begin{tabularx}{\linewidth}{|p{5.4cm}|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		University/College of Higher Education: & \\\hline
+		Main subject: & \\\hline
+	\end{tabularx}
+	
+	\subsection{Doctorate}
+	
+	\begin{tabularx}{\linewidth}{|p{5.4cm}|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		University/College of Higher Education: & \\\hline
+		Starting date (dd/mm/yy): & \\\hline
+		Date of PhD award (dd/mm/yy): & \\\hline
+		Supervisor(s) (‘Promotor(es)’): & \\\hline
+		Thesis title: & \\\hline
+	\end{tabularx}	
+	
+	\subsection{Brief summary of your research over the last five years (Max. 250 words)}
+	
+	\subsection{Current institution of employment}
+	
+	\subsection{Prospective host institution} 
+	
+	\begin{tabularx}{\linewidth}{|p{5.4cm}|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		Host institution: & \\\hline
+		Research group: & \\\hline
+	\end{tabularx}		
+	
+	\subsection{Work experience since completing your PhD}
+	
+	The first row of the table should contain the most recent position.
+	
+	\noindent
+	\begin{tabularx}{\linewidth}{|X|X|p{1cm}|X|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		\rowcolor[gray]{0.95 }Position & Period
+		(date-date) & FTE & Position type
+		(fixed term/permanent/
+		tenure-track/other) & Institution \\\hline
+		& & & & \\\hline
+		& & & & \\\hline	
+		& & & & \\\hline
+		& & & & \\\hline	
+		& & & & \\\hline
+		& & & & \\\hline	
+		& & & & \\\hline
+	\end{tabularx}	
+	
+	\subsection{Months spent since completing your PhD (include a calculation)}
+	
+	\begin{tabularx}{\linewidth}{|p{5.4cm}|X|}
+		\arrayrulecolor[gray]{0.8}\hline
+		\rowcolor[gray]{0.95} Experience & Number of months \\\hline
+		Research activities & \\\hline
+		Teaching & \\\hline
+		Leave & \\\hline
+		Management tasks & \\\hline
+		Others (please specify): & \\\hline
+	\end{tabularx}	
+	
+	\subsection{Academic staff supervised}
+	
+	\begin{tabularx}{\linewidth}{|>{\color{tableblue}}p{2.5cm}|p{4cm}|X|}
+		\arrayrulecolor[gray]{0.4}\hline
+		& \tableheadfont Give names or numbers & \tableheadfont Briefly clarify your exact role in the rightmost column. \\\hline
+		\rowcolor[gray]{0.8} \multicolumn{2}{|l|}{\tableheadfont PhDs} & \tableheadfont Promotor (formal supervisor),
+		Co-promotor (formal co-supervisor),
+		Role as (co-) supervisor \\\hline
+		Ongoing & & \\\hline
+		Successfully
+		completed & & \\\hline
+		Subtotal PhDs & & \\\hline
+		\rowcolor[gray]{0.8} \multicolumn{3}{|l|}{\tableheadfont Postdocs} \\\hline
+		 & & \\\hline 
+		Subtotal postdocs & & \\\hline
+		\rowcolor[gray]{0.8} \multicolumn{3}{|l|}{\tableheadfont Master students} \\\hline
+		& & \\\hline 
+		Subtotal master students & & \\\hline
+		\rowcolor[gray]{0.8} \multicolumn{3}{|l|}{\tableheadfont Other} \\\hline
+		Subtotal other & & \\\hline
+	\end{tabularx}	
+	
+	\subsection{International activities}
+	
+	\subsection{Other academic activities}
+	
+	\subsection{Grants, scholarships and prizes}
+	
+	Please list the research scholarships/grants for which you have successfully applied and/or prizes that you have won and indicate the amount of money involved. In case of a consortium grant please specify the amount awarded to your own group or lab.
+	
+	\noindent
+	\begin{tabularx}{\linewidth}{|X|X|X|X|}
+		\hline
+		\tableheadfont Scholarship/Grant/Prize Formal applicant + url/website & \tableheadfont Amount in euros & \tableheadfont * &	\tableheadfont Year of award \\\hline
+		& & & \\\hline
+		& & & \\\hline
+		\color{tableblue} Subtotal & & & \\\hline
+		\tableheadfont Scholarship/Grant/Prize Formal co-
+		applicant & & & \\\hline
+		& & & \\\hline
+		& & & \\\hline
+		\color{tableblue} Subtotal & & & \\\hline
+		\tableheadfont Total & & & \\\hline		
+	\end{tabularx}
+	\section{Output}
+	
+	\subsection{Output indicators}
+	
+	Please identify the most important output indicators in your field.
+	
+	\subsection{Top publications (max. five)}
+	
+	\subsection{Output}
+	
+	\begin{itemize}[label={--}]
+		\color{tableblue}
+		\setlength\itemsep{0em}
+		\item Refereed articles (max. 5)
+		\item Non-refereed articles (max. 5)
+		\item Letters (to editors) (max. 5)
+		\item Books (max. 5)
+		\item Book chapters (max. 5)
+		\item Patents (max. 5)
+		\item Other (max. 5)
+	\end{itemize}
+
+	
+\end{document}
